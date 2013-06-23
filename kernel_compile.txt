@@ -1,0 +1,38 @@
+Kernel Compile (Ubuntu)
+//replace x.y.z with your kernel version
+
+1. Download source from  - kernel.org
+
+2. Unpack : 
+   tar xjf /path/linux-x.y.z.tar.bz2
+
+3. Goto the unpacked linux dir...
+   cd /path/linux-x.y.z
+
+4. make mrproper	//what make clean does + deletes dependency files & config files!
+	or
+   make clean		//deletes all .o & .ko files (compiled files) and few others
+
+5. make menuconfig		(requires ncurses package - libncurses5-dev)
+	or
+   make xconfig/qconfig (requires QT packages)
+
+**COMPILATION**
+
+6. make
+
+// u should get kernel image bzImage @ arch/i386/boot/bzImage
+
+7. make modules
+
+**INSTALL**
+
+8. cp arch/i386/boot/bzImage boot/vmlinuz-x.y.z
+
+9. make modules_install
+
+10.mkinitramfs /boot/initrd.img-x.y.z x.y.z
+
+11.update-grub		//for grub2
+
+Done..!

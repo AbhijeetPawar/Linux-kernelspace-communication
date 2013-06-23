@@ -1,0 +1,2 @@
+This is a simple code for demostration of user-space kernel-space 
+communication using PROC_FS.
